@@ -176,51 +176,19 @@ export default function ContactForm() {
         return;
       }
 
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
-
-      let dataJson = {};
-      try {
-        dataJson = await res.json();
-      } catch {
-        /* non-JSON error page */
-      }
-
-      if (res.ok) {
-        setStatus({
-          type: "ok",
-          text: "Message sent — I'll reply to your email soon.",
-        });
-        form.reset();
-        return;
-      }
-
-      if (res.status === 503 && dataJson.error === "not_configured") {
-        openMailtoDraft(payload);
-        setStatus({
-          type: "ok",
-          text:
-            "Opening your mail app. On Vercel, add VITE_WEB3FORMS_ACCESS_KEY (or WEB3FORMS_ACCESS_KEY for /api/contact) and redeploy.",
-        });
-        return;
-      }
-
+      /* Web3Forms free tier: browser POST only — no /api/contact (server IPs blocked). */
+      openMailtoDraft(payload);
       setStatus({
-        type: "info",
+        type: "ok",
         text:
-          (typeof dataJson.error === "string" && dataJson.error) ||
-          dataJson.message ||
-          "Could not deliver the message. Prefer VITE_WEB3FORMS_ACCESS_KEY (browser) on Web3Forms free plan — see Web3Forms docs.",
+          "Opening your mail app with your message. To send inside the page next time: Vercel → Settings → Environment Variables → add VITE_WEB3FORMS_ACCESS_KEY = your Web3Forms access key → enable for Production → Redeploy (must rebuild so Vite embeds it). Remove WEB3FORMS_ACCESS_KEY if you added it by mistake.",
       });
     } catch {
       openMailtoDraft(payload);
       setStatus({
         type: "ok",
         text:
-          "Opening your mail app. For direct send from the site: set VITE_WEB3FORMS_ACCESS_KEY on Vercel and redeploy (or run the app with that key in .env locally).",
+          "Opening your mail app. Add VITE_WEB3FORMS_ACCESS_KEY on Vercel + redeploy for in-browser send.",
       });
     } finally {
       setSending(false);
