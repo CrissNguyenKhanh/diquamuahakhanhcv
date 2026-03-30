@@ -1,10 +1,11 @@
 /**
- * Vercel Serverless — POST JSON to forward messages to your inbox via Web3Forms.
+ * Vercel Serverless — POST JSON → Web3Forms.
  *
- * Setup:
- * 1. https://web3forms.com — create form, set destination to quockhanhdz295@gmail.com
- * 2. Vercel → Project → Settings → Environment Variables → WEB3FORMS_ACCESS_KEY
- * 3. Redeploy
+ * Web3Forms free plan: browser/API from end-user only. Server-side (Vercel IPs)
+ * usually needs paid plan + IP whitelist — prefer VITE_WEB3FORMS_ACCESS_KEY
+ * in the React app instead (see ContactForm.jsx).
+ *
+ * Optional server key: WEB3FORMS_ACCESS_KEY
  */
 
 export default async function handler(req, res) {
@@ -83,9 +84,17 @@ export default async function handler(req, res) {
   });
 
   const data = await upstream.json().catch(() => ({}));
-  if (!upstream.ok || data.success === false) {
+  const web3Msg =
+    (data && (data.message || data.body?.message)) || "";
+  const web3Ok = upstream.ok && data.success === true;
+
+  if (!web3Ok) {
+    const hint =
+      " Web3Forms free tier blocks most server-side sends; use env VITE_WEB3FORMS_ACCESS_KEY on Vercel (client) and redeploy.";
     res.status(502).json({
-      error: data.message || "Email service rejected the request",
+      error:
+        (web3Msg && String(web3Msg)) ||
+        "Email service rejected the request." + hint,
     });
     return;
   }

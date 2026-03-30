@@ -11,7 +11,9 @@ const LINKEDIN =
  * Web3Forms “access key” can live in Vite env (public in bundle — OK per Web3Forms).
  * On Vercel: add VITE_WEB3FORMS_ACCESS_KEY and redeploy so the build embeds it.
  */
-const WEB3_CLIENT_KEY = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY ?? "";
+const WEB3_CLIENT_KEY = String(
+  import.meta.env.VITE_WEB3FORMS_ACCESS_KEY ?? "",
+).trim();
 
 /** Mailto when neither Web3 path works (e.g. local dev without any key). */
 const CONTACT_EMAIL =
@@ -36,12 +38,25 @@ function buildWeb3Message(payload) {
   ].join("\n");
 }
 
+function web3formsUserMessage(data) {
+  if (!data || typeof data !== "object") return "";
+  return String(data.message || data.body?.message || "").trim();
+}
+
 async function submitToWeb3Forms(accessKey, payload) {
+  const key = String(accessKey ?? "").trim();
+  if (!key) {
+    return {
+      ok: false,
+      message: "Missing Web3Forms access key.",
+    };
+  }
+
   const upstream = await fetch("https://api.web3forms.com/submit", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-      access_key: accessKey,
+      access_key: key,
       subject: `[Portfolio] ${payload.subject}`,
       name: payload.name,
       email: payload.email,
@@ -49,8 +64,19 @@ async function submitToWeb3Forms(accessKey, payload) {
     }),
   });
   const data = await upstream.json().catch(() => ({}));
-  const ok = upstream.ok && data.success !== false;
-  return { ok, data };
+  const msg = web3formsUserMessage(data);
+  const ok = upstream.ok && data.success === true;
+
+  if (ok) {
+    return { ok: true, message: msg };
+  }
+
+  return {
+    ok: false,
+    message:
+      msg ||
+      "Web3Forms rejected this request. Check the access key, Web3Forms inbox limits, and spam folder.",
+  };
 }
 
 function buildMailtoBody({
@@ -134,8 +160,8 @@ export default function ContactForm() {
 
     try {
       if (WEB3_CLIENT_KEY) {
-        const { ok, data } = await submitToWeb3Forms(WEB3_CLIENT_KEY, payload);
-        if (ok) {
+        const result = await submitToWeb3Forms(WEB3_CLIENT_KEY, payload);
+        if (result.ok) {
           setStatus({
             type: "ok",
             text: "Message sent — I'll reply to your email soon.",
@@ -145,9 +171,7 @@ export default function ContactForm() {
         }
         setStatus({
           type: "info",
-          text:
-            data.message ||
-            "Web3Forms could not send this message. Check the access key and Web3Forms dashboard.",
+          text: result.message,
         });
         return;
       }
@@ -187,9 +211,9 @@ export default function ContactForm() {
       setStatus({
         type: "info",
         text:
-          dataJson.error ||
+          (typeof dataJson.error === "string" && dataJson.error) ||
           dataJson.message ||
-          "Could not deliver the message. Try again or use GitHub / LinkedIn.",
+          "Could not deliver the message. Prefer VITE_WEB3FORMS_ACCESS_KEY (browser) on Web3Forms free plan — see Web3Forms docs.",
       });
     } catch {
       openMailtoDraft(payload);
