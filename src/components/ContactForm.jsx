@@ -7,13 +7,98 @@ const TREE_LINK = "https://tr.ee/cuachukhanh";
 const LINKEDIN =
   "https://www.linkedin.com/in/qu%E1%BB%91c-kh%C3%A1nh-3679842ba/";
 
-const CONTACT_EMAIL = import.meta.env.VITE_CONTACT_EMAIL ?? "";
+/**
+ * Web3Forms “access key” can live in Vite env (public in bundle — OK per Web3Forms).
+ * On Vercel: add VITE_WEB3FORMS_ACCESS_KEY and redeploy so the build embeds it.
+ */
+const WEB3_CLIENT_KEY = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY ?? "";
+
+/** Mailto when neither Web3 path works (e.g. local dev without any key). */
+const CONTACT_EMAIL =
+  import.meta.env.VITE_CONTACT_EMAIL ?? "quockhanhdz295@gmail.com";
+
+function buildWeb3Message(payload) {
+  const { name, email, languages, databases, stacks, message } = payload;
+  const extra = [
+    languages && `Languages: ${languages}`,
+    databases && `Databases: ${databases}`,
+    stacks && `Frameworks / tools / other: ${stacks}`,
+  ]
+    .filter(Boolean)
+    .join("\n");
+  return [
+    `From: ${name}`,
+    `Reply-To: ${email}`,
+    "",
+    extra || "(no stack rows)",
+    "",
+    message,
+  ].join("\n");
+}
+
+async function submitToWeb3Forms(accessKey, payload) {
+  const upstream = await fetch("https://api.web3forms.com/submit", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      access_key: accessKey,
+      subject: `[Portfolio] ${payload.subject}`,
+      name: payload.name,
+      email: payload.email,
+      message: buildWeb3Message(payload),
+    }),
+  });
+  const data = await upstream.json().catch(() => ({}));
+  const ok = upstream.ok && data.success !== false;
+  return { ok, data };
+}
+
+function buildMailtoBody({
+  name,
+  email,
+  languages,
+  databases,
+  stacks,
+  message,
+}) {
+  const extra = [
+    languages && `Languages: ${languages}`,
+    databases && `Databases: ${databases}`,
+    stacks && `Frameworks / tools / other: ${stacks}`,
+  ]
+    .filter(Boolean)
+    .join("\n");
+
+  return [
+    `From: ${name}`,
+    `Email: ${email}`,
+    "",
+    extra || null,
+    extra ? "" : null,
+    message,
+  ]
+    .filter((line) => line !== null)
+    .join("\n");
+}
+
+function openMailtoDraft({ name, email, subject, languages, databases, stacks, message }) {
+  const body = buildMailtoBody({
+    name,
+    email,
+    languages,
+    databases,
+    stacks,
+    message,
+  });
+  const sub = subject || "Message from portfolio";
+  window.location.href = `mailto:${encodeURIComponent(CONTACT_EMAIL)}?subject=${encodeURIComponent(sub)}&body=${encodeURIComponent(body)}`;
+}
 
 export default function ContactForm() {
   const [status, setStatus] = useState(null);
   const [sending, setSending] = useState(false);
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
     setStatus(null);
     const form = e.currentTarget;
@@ -35,37 +120,87 @@ export default function ContactForm() {
       return;
     }
 
+    const payload = {
+      name,
+      email,
+      subject,
+      languages,
+      databases,
+      stacks,
+      message,
+    };
+
     setSending(true);
 
-    const extra = [
-      languages && `Languages: ${languages}`,
-      databases && `Databases: ${databases}`,
-      stacks && `Frameworks / tools / other: ${stacks}`,
-    ]
-      .filter(Boolean)
-      .join("\n");
-
-    const body = [`From: ${name}`, `Email: ${email}`, "", extra || null, extra ? "" : null, message]
-      .filter((line) => line !== null)
-      .join("\n");
-
-    window.setTimeout(() => {
-      setSending(false);
-      if (CONTACT_EMAIL) {
-        const mail = `mailto:${encodeURIComponent(CONTACT_EMAIL)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-        window.location.href = mail;
+    try {
+      if (WEB3_CLIENT_KEY) {
+        const { ok, data } = await submitToWeb3Forms(WEB3_CLIENT_KEY, payload);
+        if (ok) {
+          setStatus({
+            type: "ok",
+            text: "Message sent — I'll reply to your email soon.",
+          });
+          form.reset();
+          return;
+        }
         setStatus({
-          type: "ok",
-          text: "Opening your mail app — languages, DB, and stack are included in the body.",
+          type: "info",
+          text:
+            data.message ||
+            "Web3Forms could not send this message. Check the access key and Web3Forms dashboard.",
         });
-      } else {
+        return;
+      }
+
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      let dataJson = {};
+      try {
+        dataJson = await res.json();
+      } catch {
+        /* non-JSON error page */
+      }
+
+      if (res.ok) {
         setStatus({
           type: "ok",
-          text: "Recorded (demo). Set VITE_CONTACT_EMAIL in .env to send via Mailto.",
+          text: "Message sent — I'll reply to your email soon.",
         });
         form.reset();
+        return;
       }
-    }, 380);
+
+      if (res.status === 503 && dataJson.error === "not_configured") {
+        openMailtoDraft(payload);
+        setStatus({
+          type: "ok",
+          text:
+            "Opening your mail app. On Vercel, add VITE_WEB3FORMS_ACCESS_KEY (or WEB3FORMS_ACCESS_KEY for /api/contact) and redeploy.",
+        });
+        return;
+      }
+
+      setStatus({
+        type: "info",
+        text:
+          dataJson.error ||
+          dataJson.message ||
+          "Could not deliver the message. Try again or use GitHub / LinkedIn.",
+      });
+    } catch {
+      openMailtoDraft(payload);
+      setStatus({
+        type: "ok",
+        text:
+          "Opening your mail app. For direct send from the site: set VITE_WEB3FORMS_ACCESS_KEY on Vercel and redeploy (or run the app with that key in .env locally).",
+      });
+    } finally {
+      setSending(false);
+    }
   }
 
   return (
