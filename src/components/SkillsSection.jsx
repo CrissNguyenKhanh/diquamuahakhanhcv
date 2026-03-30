@@ -17,10 +17,10 @@ const featuredSkills = [
     id: "ai-stack",
     className: "skill-card--ai",
     icon: "◆",
-    name: "Computer vision · ML · model training",
-    badge: "Applied AI · DMS & beyond",
+    name: "Vision & data-driven apps",
+    badge: "DMS & coursework",
     level: 90,
-    note: "Strong focus on vision + classical ML: OpenCV, MediaPipe, scikit-learn, training & iterating models, real-time inference; full stack via Flask, React 19 + Vite, Socket.IO, MySQL, Telegram — see DMS repo.",
+    note: "OpenCV, MediaPipe, scikit-learn, Flask + React/Vite, Socket.IO, MySQL — see the driver-monitoring (DMS) repo for the full stack.",
     barDelay: "0.55s",
   },
 ];
@@ -72,12 +72,8 @@ const RECENT_FOCUS = [
   "MediaPipe",
   "NumPy",
   "scikit-learn",
-  "Model training & fine-tuning",
-  "ML evaluation & iteration",
-  "YOLO (optional / experimental)",
-  "Computer vision pipelines",
+  "Model training & evaluation",
   "Telegram bot / webhooks",
-  "Real-time inference",
 ];
 
 function SkillTier({ title, description, tags, variant }) {
@@ -192,7 +188,7 @@ export default function SkillsSection() {
           <SkillTier
             variant="recent"
             title="Recently emphasized"
-            description="DMS-style work: vision + ML, Flask/React/Vite, real-time channels — use that repo for the full story."
+            description="Python / Flask / React (Vite), sockets, OpenCV-side tooling — anchored by the DMS project on GitHub."
             tags={RECENT_FOCUS}
           />
         </div>
@@ -207,10 +203,8 @@ export default function SkillsSection() {
         <aside className="skills-credentials" aria-label="Certifications">
           <h3 className="skills-credentials__title">Certifications</h3>
           <p className="skills-credentials__text">
-            <strong>FPT — Java (May 2025):</strong> completed FPT&apos;s formal Java
-            certification program. Listed here as its own section (not mixed into
-            the snippet or chip lists above) so it stays easy to scan on a CV or
-            portfolio.
+            <strong>FPT — Java (May 2025):</strong> completed FPT&apos;s Java
+            certification program.
           </p>
         </aside>
 

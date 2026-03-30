@@ -31,24 +31,20 @@ export default function IntroSection() {
               lists). Below &quot;Skills&quot; I group items as{" "}
               <strong>clearest signal</strong>,{" "}
               <strong>strong supporting evidence</strong>, and{" "}
-              <strong>recently highlighted work</strong> (including newer
-              Python / Flask / React / CV stacks).
+              <strong>recently highlighted work</strong> (including Python,
+              Flask, and React stacks).
             </p>
             <p className="intro__cred">
               <strong>Credential:</strong> In{" "}
               <strong>May 2025</strong> I earned a formal{" "}
-              <strong>Java certification from FPT</strong>, alongside my
-              hands-on JVM and backend projects.
+              <strong>Java certification from FPT</strong>, alongside JVM and
+              backend projects grounded in public repos.
             </p>
             <p>
-              On the <strong>AI</strong> side I&apos;m especially comfortable
-              with <strong>computer vision</strong> and{" "}
-              <strong>machine learning</strong>: end-to-end pipelines,
-              classical ML, integrating vision libraries, and{" "}
-              <strong>training / iterating on models</strong> until they behave
-              well on real inputs — not just calling APIs, but shaping the model
-              story from data to deployment (see the driver-monitoring / DMS
-              work on GitHub for the fullest example).
+              Recent builds include a{" "}
+              <strong>driver-monitoring (DMS)</strong> stack on GitHub — Python,
+              Flask, React, vision tooling, and classical ML where the problem
+              calls for it.
             </p>
             <p>
               <a href={GITHUB} target="_blank" rel="noreferrer noopener">
