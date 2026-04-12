@@ -1,5 +1,6 @@
 import "./SkillsSection.css";
 import { useScrollReveal } from "../hooks/useScrollReveal";
+import TechMarquee from "./TechMarquee";
 
 const GITHUB = "https://github.com/CrissNguyenKhanh";
 
@@ -112,15 +113,19 @@ export default function SkillsSection() {
     <section id="skills" className="skills-section" aria-labelledby="skills-heading">
       <div className="skills-inner">
         <div ref={headRef} data-reveal>
-        <p className="skills-kicker">
-          <a href={GITHUB} target="_blank" rel="noreferrer noopener">
-            @CrissNguyenKhanh
-          </a>{" "}
-          · Da Nang · evidence from public repos
-        </p>
-        <h2 id="skills-heading" className="skills-title">
-          Skills (GitHub-backed)
-        </h2>
+          <div className="sec-label">
+            <span className="sec-label__num">03</span>
+            <span className="sec-label__line" />
+          </div>
+          <p className="skills-kicker">
+            <a href={GITHUB} target="_blank" rel="noreferrer noopener">
+              @CrissNguyenKhanh
+            </a>{" "}
+            · Da Nang · evidence from public repos
+          </p>
+          <h2 id="skills-heading" className="skills-title">
+            Tech Stack
+          </h2>
         <p className="skills-sub">
           I reviewed my public profile the way a recruiter might: repos,
           languages, READMEs, and visible structure. This is{" "}
@@ -128,13 +133,16 @@ export default function SkillsSection() {
           can be <strong>cross-checked</strong> on GitHub today.
         </p>
 
-        <p className="skills-disclaimer" role="note">
-          <strong>Method:</strong> clearest signal → strong supporting evidence →
-          recently emphasized (newer stacks). Items without solid public proof
-          (e.g. deep production DevOps, cloud at scale, CI/CD maturity) are{" "}
-          <em>not</em> listed as confirmed skills here.
-        </p>
+          <p className="skills-disclaimer" role="note">
+            <strong>Method:</strong> clearest signal → strong supporting evidence →
+            recently emphasized (newer stacks). Items without solid public proof
+            (e.g. deep production DevOps, cloud at scale, CI/CD maturity) are{" "}
+            <em>not</em> listed as confirmed skills here.
+          </p>
         </div>
+
+        {/* Scrolling tech strip */}
+        <TechMarquee />
 
         <div className="skills-featured" ref={featuredRef} data-reveal>
           {featuredSkills.map((s) => (

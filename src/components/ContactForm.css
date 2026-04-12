@@ -1,7 +1,11 @@
+.sec-label--contact {
+  margin-bottom: 0.4rem;
+}
+
 .contact-section {
-  --c-pink: #ff4d8a;
-  --c-cyan: #22d3ee;
-  --c-purple: #a78bfa;
+  --c-pink: #ec4899;
+  --c-cyan: #06b6d4;
+  --c-purple: #7c3aed;
   --c-bg: #0b0e14;
   --c-surface: rgba(18, 22, 31, 0.88);
   --c-border: rgba(255, 255, 255, 0.1);

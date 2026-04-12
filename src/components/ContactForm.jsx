@@ -214,6 +214,10 @@ export default function ContactForm() {
               />
             </div>
           </div>
+          <div className="sec-label sec-label--contact">
+            <span className="sec-label__num">04</span>
+            <span className="sec-label__line" />
+          </div>
           <p className="contact-kicker">Contact</p>
           <h2 id="contact-heading" className="contact-title">
             Let&apos;s talk

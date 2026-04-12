@@ -24,10 +24,10 @@
 }
 
 .intro__heading {
-  font-size: clamp(1.35rem, 3vw, 2rem);
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  line-height: 1.2;
+  font-size: clamp(1.65rem, 3.5vw, 2.4rem);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
   margin: 0 0 1.25rem;
 }
 

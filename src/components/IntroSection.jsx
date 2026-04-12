@@ -12,8 +12,12 @@ export default function IntroSection() {
     <section id="intro" className="intro">
       <div className="intro__grid">
         <div className="intro__text" ref={textRef} data-reveal="left">
+          <div className="sec-label">
+            <span className="sec-label__num">01</span>
+            <span className="sec-label__line" />
+          </div>
           <h2 className="intro__heading">
-            LET ME <span className="intro__hlt">INTRODUCE</span> MYSELF
+            About <span className="intro__hlt">Me</span>
           </h2>
           <div className="intro__body">
             <p>

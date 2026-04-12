@@ -1,5 +1,6 @@
 import AnimatedBg from "./components/AnimatedBg";
 import ContactForm from "./components/ContactForm";
+import Footer from "./components/Footer";
 import HeroSection from "./components/HeroSection";
 import IntroSection from "./components/IntroSection";
 import MyFullInfomation from "./components/MyFullInfomation";
@@ -31,6 +32,7 @@ function App() {
         <SkillsSection />
         <ContactForm />
       </main>
+      <Footer />
     </>
   );
 }
