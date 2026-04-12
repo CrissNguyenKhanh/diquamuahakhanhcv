@@ -1,0 +1,54 @@
+/* ── Scroll progress bar ───────────────────────────────────── */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #a78bfa, #22d3ee, #ff4d8a);
+  z-index: 9999;
+  transition: width 0.1s linear;
+  pointer-events: none;
+  /* subtle glow */
+  box-shadow: 0 0 8px rgba(167, 139, 250, 0.7);
+}
+
+/* ── Custom cursor glow ────────────────────────────────────── */
+.cursor-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(167, 139, 250, 0.55) 0%,
+    rgba(34, 211, 238, 0.18) 60%,
+    transparent 100%
+  );
+  pointer-events: none;
+  z-index: 9998;
+  transition:
+    width 0.25s ease,
+    height 0.25s ease,
+    opacity 0.25s ease;
+  /* starts hidden; appears after first mouse move via transform */
+}
+
+.cursor-glow--hover {
+  width: 44px;
+  height: 44px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 77, 138, 0.45) 0%,
+    rgba(167, 139, 250, 0.18) 60%,
+    transparent 100%
+  );
+}
+
+/* Hide cursor-glow on touch devices */
+@media (hover: none) {
+  .cursor-glow {
+    display: none;
+  }
+}

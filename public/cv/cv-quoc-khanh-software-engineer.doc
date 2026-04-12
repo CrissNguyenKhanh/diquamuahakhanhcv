@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>CV - Quoc Khanh - Software Engineer</title>
+  <style>
+    body { font-family: Arial, sans-serif; color: #222; margin: 24px; line-height: 1.5; }
+    h1 { margin: 0 0 4px; font-size: 26px; }
+    h2 { margin: 16px 0 6px; font-size: 14px; text-transform: uppercase; }
+    p, li { font-size: 13px; margin: 0; }
+    ul { margin: 6px 0 0; }
+  </style>
+</head>
+<body>
+  <h1>Quoc Khanh</h1>
+  <p><strong>Software Engineer</strong></p>
+
+  <h2>Thông tin</h2>
+  <p>Email: quockhanhdz295@gmail.com</p>
+  <p>SĐT: (+84) 0949103246</p>
+  <p>Địa chỉ: Da Nang, Vietnam</p>
+  <p>GitHub: github.com/CrissNguyenKhanh</p>
+
+  <h2>Kỹ năng</h2>
+  <p>Java/Spring Boot, REST API, Kotlin/Android, Python/Flask, React+Vite, MySQL, Socket.IO, OpenCV, MediaPipe, scikit-learn.</p>
+
+  <h2>Chứng chỉ</h2>
+  <p>FPT - Java Certificate (May 2025)</p>
+
+  <h2>Kinh nghiệm</h2>
+  <p><strong>Software Engineer (Personal Projects)</strong> - 2024 đến nay</p>
+  <ul>
+    <li>Xây dựng dự án end-to-end: DMS, Android healthcare app, Java REST API.</li>
+    <li>Áp dụng Spring/Flask/React theo tài liệu chính thức vào code public trên GitHub.</li>
+  </ul>
+
+  <h2>Dự án nổi bật</h2>
+  <ul>
+    <li><strong>AI Driver Monitoring System (DMS)</strong> - OpenCV + MediaPipe + scikit-learn + Flask + React + MySQL</li>
+    <li><strong>MyFinalProjectOfAndroid</strong> - Kotlin Android + Spring Boot REST + JWT + JPA/MySQL</li>
+    <li><strong>HayThucKhuya</strong> - Gaussian Naive Bayes (scikit-learn), deploy Ubuntu</li>
+    <li><strong>Chatapp_RealTime_HEHEH (collab)</strong> - Java RMI realtime chat</li>
+  </ul>
+</body>
+</html>
+

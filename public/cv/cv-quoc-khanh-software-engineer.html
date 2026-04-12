@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quoc Khanh - Software Engineer CV</title>
+    <style>
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+        color: #1f2937;
+        background: #f3f4f6;
+      }
+      .page {
+        width: 210mm;
+        min-height: 297mm;
+        margin: 10px auto;
+        background: #fff;
+        border: 1px solid #e5e7eb;
+        box-shadow: 0 10px 24px rgba(17, 24, 39, 0.12);
+      }
+      .header {
+        padding: 18px 22px;
+        border-bottom: 2px solid #0f172a;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+      }
+      .name { margin: 0; font-size: 30px; letter-spacing: .01em; }
+      .role { margin: 6px 0 0; color: #334155; font-weight: 700; }
+      .links { font-size: 12px; text-align: right; color: #475569; }
+      .links a { color: #0f766e; text-decoration: none; }
+      .grid { display: grid; grid-template-columns: 300px 1fr; }
+      .left {
+        border-right: 1px solid #e5e7eb;
+        padding: 18px 18px 22px;
+        background: #f8fafc;
+      }
+      .right { padding: 18px 22px 22px; }
+      .avatar-wrap {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 12px;
+      }
+      .avatar {
+        width: 124px;
+        height: 124px;
+        border-radius: 999px;
+        border: 4px solid #e2e8f0;
+        object-fit: cover;
+      }
+      h2 {
+        margin: 16px 0 8px;
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: .1em;
+        color: #0f172a;
+        border-bottom: 1px solid #cbd5e1;
+        padding-bottom: 4px;
+      }
+      p, li { font-size: 12.8px; line-height: 1.55; margin: 0; }
+      ul { margin: 6px 0 0; padding-left: 18px; }
+      .item { margin-bottom: 8px; }
+      .muted { color: #64748b; }
+      .project { margin-bottom: 12px; }
+      .project strong { display: inline-block; font-size: 13px; }
+      .contact-line { margin-bottom: 6px; }
+      .contact-line strong { color: #0f172a; }
+      .skills span {
+        display: inline-block;
+        margin: 0 6px 6px 0;
+        padding: 4px 8px;
+        background: #e2e8f0;
+        border: 1px solid #cbd5e1;
+        border-radius: 999px;
+        font-size: 11px;
+      }
+      .block { margin-bottom: 10px; }
+      .job-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        align-items: baseline;
+      }
+      .job-head strong { font-size: 13px; }
+      .project a { color: #0f766e; text-decoration: none; font-size: 11.5px; }
+      @media print {
+        body { background: #fff; }
+        .page { margin: 0; border: none; box-shadow: none; width: 100%; min-height: auto; }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <header class="header">
+        <div>
+          <h1 class="name">Quoc Khanh</h1>
+          <p class="role">Software Engineer</p>
+        </div>
+        <div class="links">
+          <div><a href="mailto:quockhanhdz295@gmail.com">quockhanhdz295@gmail.com</a></div>
+          <div><a href="https://github.com/CrissNguyenKhanh">github.com/CrissNguyenKhanh</a></div>
+          <div><a href="https://www.linkedin.com/in/qu%E1%BB%91c-kh%C3%A1nh-3679842ba/">LinkedIn Profile</a></div>
+        </div>
+      </header>
+      <section class="grid">
+        <aside class="left">
+          <div class="avatar-wrap">
+            <img class="avatar" src="./image.png" alt="Quoc Khanh avatar" />
+          </div>
+
+          <h2>Contact</h2>
+          <p class="contact-line"><strong>Date of Birth:</strong> 02/09/2005</p>
+          <p class="contact-line"><strong>Gender:</strong> Male</p>
+          <p class="contact-line"><strong>Phone:</strong> (+84) 0949103246</p>
+          <p class="contact-line"><strong>Email:</strong> quockhanhdz295@gmail.com</p>
+          <p class="contact-line"><strong>Location:</strong> Da Nang, Vietnam</p>
+          <p class="contact-line"><strong>GitHub:</strong> CrissNguyenKhanh</p>
+
+          <h2>Skills</h2>
+          <div class="skills">
+            <span>Java / Spring Boot</span><span>REST API</span><span>Kotlin / Android</span>
+            <span>Python / Flask</span><span>React + Vite</span><span>JavaScript</span>
+            <span>MySQL</span><span>Socket.IO</span><span>OpenCV</span><span>MediaPipe</span>
+            <span>scikit-learn</span><span>JUnit / Mockito</span><span>Git / GitHub</span>
+            <span>Ubuntu</span><span>Nginx</span>
+          </div>
+
+          <h2>Education</h2>
+          <p class="item"><strong>Computer Science / IT</strong></p>
+          <p class="muted">Self-taught via online resources and public GitHub projects.</p>
+
+          <h2>Certification</h2>
+          <p>FPT - Java Certificate (May 2025)</p>
+
+          <h2>Interests</h2>
+          <ul>
+            <li>Reading technical blogs and architecture deep dives</li>
+            <li>Building personal projects with practical datasets</li>
+            <li>Music and movies</li>
+          </ul>
+        </aside>
+        <div class="right">
+          <h2>Career Objective</h2>
+          <p>
+            Software Engineer focused on backend and product-oriented engineering.
+            Strong practical evidence across Java/Spring APIs, Python/Flask services,
+            React interfaces, and real-time + ML-enabled workflows. Looking to contribute
+            measurable product features in a team with clear engineering processes and code review culture.
+          </p>
+
+          <h2>Work Experience</h2>
+          <div class="job-head">
+            <strong>Software Engineer (Personal Projects)</strong>
+            <span class="muted">2024 - Present</span>
+          </div>
+          <p class="muted">Independent / Open Source</p>
+          <ul>
+            <li>Designed and delivered end-to-end projects: AI Driver Monitoring System, Android healthcare app, Java REST APIs.</li>
+            <li>Applied official framework documentation (Spring, Flask, React) into production-like public codebases.</li>
+            <li>Maintained clean Git workflow with scoped commits and feature branch practices.</li>
+            <li>Handled architecture, validation, logging, and deployment-oriented concerns across full-stack demos.</li>
+          </ul>
+
+          <h2>Featured Projects</h2>
+          <div class="project">
+            <strong>AI Driver Monitoring System (DMS)</strong> <span class="muted">03/2026</span><br />
+            <a href="https://github.com/CrissNguyenKhanh/AI-DRIVER-MONITORING-SYSTEM-DMS">github.com/CrissNguyenKhanh/AI-DRIVER-MONITORING-SYSTEM-DMS</a>
+            <ul>
+              <li>OpenCV + MediaPipe vision pipeline with realtime behavior signals.</li>
+              <li>scikit-learn classifiers for scoring/classification tasks.</li>
+              <li>Flask + Gunicorn backend, React 19 + Vite frontend, Socket.IO, MySQL, Telegram notifications.</li>
+            </ul>
+          </div>
+
+          <div class="project">
+            <strong>Healthcare Mobile Suite (MyFinalProjectOfAndroid)</strong> <span class="muted">05/2025 - 08/2025</span><br />
+            <a href="https://github.com/CrissNguyenKhanh/MyFinalProjectOfAndroid">github.com/CrissNguyenKhanh/MyFinalProjectOfAndroid</a>
+            <ul>
+              <li>Kotlin Android client for appointment and user-facing healthcare flows.</li>
+              <li>Spring Boot REST backend with JWT auth, JPA, and MySQL persistence.</li>
+              <li>Retrofit/OkHttp + coroutines for stable API integration.</li>
+            </ul>
+          </div>
+
+          <div class="project">
+            <strong>HayThucKhuya - Diagnostic Assistant</strong> <span class="muted">12/2025</span><br />
+            <a href="https://github.com/CrissNguyenKhanh/HayThucKhuya">github.com/CrissNguyenKhanh/HayThucKhuya</a>
+            <ul>
+              <li>Gaussian Naive Bayes (scikit-learn) for symptom-based diagnostic suggestions.</li>
+              <li>pandas/NumPy preprocessing; deployment on Ubuntu with systemd + Nginx.</li>
+            </ul>
+          </div>
+
+          <div class="project">
+            <strong>Realtime Chat (RMI + Security, collaborative)</strong> <span class="muted">11/2025 - 12/2025</span><br />
+            <a href="https://github.com/CongHien05/Chatapp_RealTime_HEHEH">github.com/CongHien05/Chatapp_RealTime_HEHEH</a>
+            <ul>
+              <li>Java RMI realtime chat architecture with structured DTO exchange.</li>
+              <li>Security-minded validation, exception handling, and auditable logging patterns.</li>
+            </ul>
+          </div>
+
+          <div class="project">
+            <strong>NoobApi</strong> <span class="muted">05/2025</span><br />
+            <a href="https://github.com/CrissNguyenKhanh/NoobApi">github.com/CrissNguyenKhanh/NoobApi</a>
+            <ul>
+              <li>Java REST API with authentication/authorization and CRUD domains.</li>
+              <li>Layered code structure with JUnit/Mockito test coverage in project workflow.</li>
+            </ul>
+          </div>
+
+          <h2>Achievements</h2>
+          <ul>
+            <li><strong>2024:</strong> Built a strong Java/backend practice base through public project delivery and documentation.</li>
+            <li><strong>2025:</strong> Delivered and deployed Naive Bayes diagnostic demo on Ubuntu with reproducible run steps.</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
+

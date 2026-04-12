@@ -1,4 +1,6 @@
+import { useRef } from "react";
 import "./ProjectsSection.css";
+import { useScrollReveal } from "../hooks/useScrollReveal";
 
 const GITHUB_USER = "CrissNguyenKhanh";
 const GITHUB_BASE = `https://github.com/${GITHUB_USER}`;
@@ -178,79 +180,114 @@ const FEATURED_PROJECTS = [
   },
 ];
 
+function ProjectCard({ p, index }) {
+  const cardRef = useRef(null);
+
+  function handleTilt(e) {
+    const card = cardRef.current;
+    if (!card) return;
+    const rect = card.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+    card.style.setProperty("--tilt-x", `${y * -10}deg`);
+    card.style.setProperty("--tilt-y", `${x * 10}deg`);
+    card.style.setProperty("--shine-x", `${(e.clientX - rect.left) / rect.width * 100}%`);
+    card.style.setProperty("--shine-y", `${(e.clientY - rect.top) / rect.height * 100}%`);
+  }
+
+  function resetTilt() {
+    const card = cardRef.current;
+    if (!card) return;
+    card.style.setProperty("--tilt-x", "0deg");
+    card.style.setProperty("--tilt-y", "0deg");
+  }
+
+  const owner = p.owner ?? GITHUB_USER;
+  const href = repoHref(owner, p.slug);
+  const pathLabel = `${owner}/${p.slug}`;
+
+  return (
+    <li style={{ "--card-i": index }}>
+      <article
+        ref={cardRef}
+        className={`project-card project-card--accent-${p.accent}`}
+        onMouseMove={handleTilt}
+        onMouseLeave={resetTilt}
+      >
+        <div className="project-card__shine" aria-hidden />
+        {p.collab ? (
+          <p className="project-card__badge" lang="en">
+            Collaborative
+          </p>
+        ) : null}
+        <h3 className="project-card__title">{p.title}</h3>
+        <p className="project-card__repo" lang="en">
+          <code>{pathLabel}</code>
+        </p>
+        <p className="project-card__created" lang="en">
+          <time dateTime={p.createdAt}>
+            Repo created {formatRepoCreated(p.createdAt)}
+          </time>
+        </p>
+        <p className="project-card__blurb">{p.blurb}</p>
+        <ul className="project-card__stack" aria-label="Tech stack">
+          {p.stack.map((t) => (
+            <li key={t}>{t}</li>
+          ))}
+        </ul>
+        <a
+          className="project-card__link"
+          href={href}
+          target="_blank"
+          rel="noreferrer noopener"
+        >
+          View on GitHub
+          <span className="project-card__arrow" aria-hidden>
+            →
+          </span>
+        </a>
+      </article>
+    </li>
+  );
+}
+
 export default function ProjectsSection() {
+  const headRef = useScrollReveal();
+  const gridRef = useScrollReveal({ threshold: 0.05 });
+
   return (
     <section id="projects" className="projects-section" aria-labelledby="projects-heading">
       <div className="projects-inner">
-        <p className="projects-kicker">
-          <a href={GITHUB_BASE} target="_blank" rel="noreferrer noopener">
-            github.com/{GITHUB_USER}
-          </a>
-        </p>
-        <h2 id="projects-heading" className="projects-title">
-          Featured projects
-        </h2>
-        <p className="projects-sub">
-          Each card lists concrete languages and frameworks — MySQL where data
-          lives, React/Vite or Android on the client, Docker or Tomcat only when
-          the repo actually uses them. <strong>Nginx</strong> appears solely on{" "}
-          HayThucKhuya, where the Ubuntu deployment is fronted for real traffic.
-          ML callouts stay explicit (
-          <strong>scikit-learn</strong> + OpenCV/MediaPipe on DMS;{" "}
-          <strong>Gaussian Naive Bayes</strong> on HayThucKhuya).{" "}
-          <strong>Repo created</strong> dates match each repository&apos;s
-          GitHub <code>created_at</code> (UTC) so hiring teams can see steady
-          activity over time. Links open the canonical GitHub repository.
-        </p>
+        <div ref={headRef} data-reveal>
+          <p className="projects-kicker">
+            <a href={GITHUB_BASE} target="_blank" rel="noreferrer noopener">
+              github.com/{GITHUB_USER}
+            </a>
+          </p>
+          <h2 id="projects-heading" className="projects-title">
+            Featured projects
+          </h2>
+          <p className="projects-sub">
+            Each card lists concrete languages and frameworks — MySQL where data
+            lives, React/Vite or Android on the client, Docker or Tomcat only when
+            the repo actually uses them. <strong>Nginx</strong> appears solely on{" "}
+            HayThucKhuya, where the Ubuntu deployment is fronted for real traffic.
+            ML callouts stay explicit (
+            <strong>scikit-learn</strong> + OpenCV/MediaPipe on DMS;{" "}
+            <strong>Gaussian Naive Bayes</strong> on HayThucKhuya).{" "}
+            <strong>Repo created</strong> dates match each repository&apos;s
+            GitHub <code>created_at</code> (UTC) so hiring teams can see steady
+            activity over time. Links open the canonical GitHub repository.
+          </p>
+        </div>
 
-        <ul className="projects-grid">
-          {FEATURED_PROJECTS.map((p) => {
-            const owner = p.owner ?? GITHUB_USER;
-            const href = repoHref(owner, p.slug);
-            const pathLabel = `${owner}/${p.slug}`;
-            return (
-              <li key={pathLabel}>
-                <article
-                  className={`project-card project-card--accent-${p.accent}`}
-                >
-                  {p.collab ? (
-                    <p className="project-card__badge" lang="en">
-                      Collaborative
-                    </p>
-                  ) : null}
-                  <h3 className="project-card__title">{p.title}</h3>
-                  <p className="project-card__repo" lang="en">
-                    <code>{pathLabel}</code>
-                  </p>
-                  <p className="project-card__created" lang="en">
-                    <time dateTime={p.createdAt}>
-                      Repo created {formatRepoCreated(p.createdAt)}
-                    </time>
-                  </p>
-                  <p className="project-card__blurb">{p.blurb}</p>
-                  <ul className="project-card__stack" aria-label="Tech stack">
-                    {p.stack.map((t) => (
-                      <li key={t}>{t}</li>
-                    ))}
-                  </ul>
-                  <a
-                    className="project-card__link"
-                    href={href}
-                    target="_blank"
-                    rel="noreferrer noopener"
-                  >
-                    View on GitHub
-                    <span className="project-card__arrow" aria-hidden>
-                      →
-                    </span>
-                  </a>
-                </article>
-              </li>
-            );
-          })}
+        <ul className="projects-grid" ref={gridRef} data-reveal>
+          {FEATURED_PROJECTS.map((p, i) => (
+            <ProjectCard key={`${p.owner ?? GITHUB_USER}/${p.slug}`} p={p} index={i} />
+          ))}
         </ul>
 
-        <p className="projects-foot">
+        <p className="projects-foot" data-reveal>
           <a href={GITHUB_BASE} target="_blank" rel="noreferrer noopener">
             See all {GITHUB_USER} repositories →
           </a>

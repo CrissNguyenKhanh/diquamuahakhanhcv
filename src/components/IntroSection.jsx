@@ -1,13 +1,17 @@
 import "./IntroSection.css";
 import avatarImg from "../images/image.png";
+import { useScrollReveal } from "../hooks/useScrollReveal";
 
 const GITHUB = "https://github.com/CrissNguyenKhanh";
 
 export default function IntroSection() {
+  const textRef = useScrollReveal();
+  const visualRef = useScrollReveal({ threshold: 0.1 });
+
   return (
     <section id="intro" className="intro">
       <div className="intro__grid">
-        <div className="intro__text">
+        <div className="intro__text" ref={textRef} data-reveal="left">
           <h2 className="intro__heading">
             LET ME <span className="intro__hlt">INTRODUCE</span> MYSELF
           </h2>
@@ -54,7 +58,7 @@ export default function IntroSection() {
           </div>
         </div>
 
-        <div className="intro__visual">
+        <div className="intro__visual" ref={visualRef} data-reveal="right">
           <span className="intro__vertical" aria-hidden>
             ABOUT ME
           </span>

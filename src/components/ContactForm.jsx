@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./ContactForm.css";
 import avatarImg from "../images/image.png";
+import { useScrollReveal } from "../hooks/useScrollReveal";
 
 const GITHUB = "https://github.com/CrissNguyenKhanh";
 const TREE_LINK = "https://tr.ee/cuachukhanh";
@@ -195,8 +196,10 @@ export default function ContactForm() {
     }
   }
 
+  const sectionRef = useScrollReveal({ threshold: 0.08 });
+
   return (
-    <section id="contact" className="contact-section" aria-labelledby="contact-heading">
+    <section id="contact" className="contact-section" aria-labelledby="contact-heading" ref={sectionRef} data-reveal>
       <div className="contact-card">
         <aside className="contact-aside">
           <div className="contact-avatar-wrap">

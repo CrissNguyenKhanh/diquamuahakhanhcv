@@ -1,4 +1,5 @@
 import "./SkillsSection.css";
+import { useScrollReveal } from "../hooks/useScrollReveal";
 
 const GITHUB = "https://github.com/CrissNguyenKhanh";
 
@@ -103,9 +104,14 @@ function SkillTier({ title, description, tags, variant }) {
 }
 
 export default function SkillsSection() {
+  const headRef = useScrollReveal();
+  const featuredRef = useScrollReveal({ threshold: 0.05 });
+  const tiersRef = useScrollReveal({ threshold: 0.05 });
+
   return (
     <section id="skills" className="skills-section" aria-labelledby="skills-heading">
       <div className="skills-inner">
+        <div ref={headRef} data-reveal>
         <p className="skills-kicker">
           <a href={GITHUB} target="_blank" rel="noreferrer noopener">
             @CrissNguyenKhanh
@@ -128,8 +134,9 @@ export default function SkillsSection() {
           (e.g. deep production DevOps, cloud at scale, CI/CD maturity) are{" "}
           <em>not</em> listed as confirmed skills here.
         </p>
+        </div>
 
-        <div className="skills-featured">
+        <div className="skills-featured" ref={featuredRef} data-reveal>
           {featuredSkills.map((s) => (
             <article
               key={s.id}
@@ -171,7 +178,7 @@ export default function SkillsSection() {
           ))}
         </div>
 
-        <div className="skills-tiers-wrap">
+        <div className="skills-tiers-wrap" ref={tiersRef} data-reveal>
           <p className="skills-tiers-kicker">Skill matrix</p>
           <SkillTier
             variant="clearest"

@@ -35,6 +35,7 @@ export default function HeroSection() {
       <div className="hero__bg" aria-hidden>
         <span className="hero__orb hero__orb--a" />
         <span className="hero__orb hero__orb--b" />
+        <span className="hero__orb hero__orb--c" />
         <span className="hero__gridlines" />
       </div>
 

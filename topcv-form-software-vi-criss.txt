@@ -1,0 +1,221 @@
+PHIẾU NỘI DUNG CV (THEO FORM TOPCV) - BẢN ĐIỀN SẴN
+================================================================
+
+Bạn có thể mở file này, copy từng khối và dán vào đúng ô trên form TopCV.
+Các chỗ không chắc về thông tin cá nhân/mốc thời gian mình để trống hoặc ghi gợi ý.
+
+----------------------------------------------------------------
+1. THÔNG TIN CÁ NHÂN
+----------------------------------------------------------------
+
+Họ và tên: ............. (bạn điền theo CMND/hộ chiếu)
+Vị trí mong muốn: Software Engineer / Lập trình viên phần mềm
+
+Ngày sinh: 02/09/2005  (nếu khác bạn sửa lại)
+Giới tính: Nam (sửa nếu không đúng)
+
+Số điện thoại: (+84) 0949103246  (thay bằng số thật của bạn)
+Email: quockhanhdz295@gmail.com
+Địa chỉ: Quận A, TP. Đà Nẵng (sửa lại đúng nơi bạn ở)
+
+Facebook / LinkedIn / GitHub:
+- GitHub:  https://github.com/CrissNguyenKhanh
+- LinkedIn: https://www.linkedin.com/in/qu%E1%BB%91c-kh%C3%A1nh-3679842ba/
+- Linktree: https://tr.ee/cuachukhanh
+
+----------------------------------------------------------------
+2. MỤC TIÊU NGHỀ NGHIỆP
+----------------------------------------------------------------
+
+Với nền tảng tự học và xây dựng sản phẩm cá nhân, tôi hướng tới vị trí Software Engineer
+trong môi trường có quy trình rõ ràng, code review kỹ và sản phẩm chạy thật với người dùng.
+Tôi muốn tận dụng thế mạnh về Java backend, Python/Flask, React, cùng kinh nghiệm làm việc
+trên các dự án cá nhân như hệ thống giám sát tài xế (DMS), ứng dụng y tế trên Android và
+API Java, để đóng góp vào những tính năng có ý nghĩa và có thể đo lường được bằng số liệu.
+
+Ngắn hạn (1–2 năm), tôi muốn gia nhập một team phát triển sản phẩm, được review code thường
+xuyên và tham gia vào quy trình triển khai thực tế (CI/CD, logging, monitoring).
+Dài hạn, tôi muốn trở thành kỹ sư có khả năng thiết kế module, mentor các bạn junior và
+xây dựng được portfolio dự án chất lượng, minh bạch trên GitHub.
+
+----------------------------------------------------------------
+3. HỌC VẤN
+----------------------------------------------------------------
+
+Trường: ............................... (ví dụ: Đại học CNTT & Truyền thông)
+Chuyên ngành: ........................ (ví dụ: Khoa học máy tính / Công nghệ thông tin)
+Thời gian: 20.. – 20..
+
+Gợi ý nếu bạn chưa muốn ghi trường: có thể để đơn giản là
+“Tự học lập trình thông qua tài liệu online và dự án cá nhân trên GitHub”.
+
+----------------------------------------------------------------
+4. KINH NGHIỆM LÀM VIỆC (NẾU CÓ)
+----------------------------------------------------------------
+
+Nếu bạn đã có kinh nghiệm đi làm, hãy điền:
+
+Chức danh: Lập trình viên / Thực tập sinh phát triển phần mềm
+Công ty: ........................................................
+Thời gian: 20.. – 20..
+
+Mô tả công việc (gợi ý 3–5 bullet):
+- Tham gia phát triển và bảo trì các module backend (REST API, CRUD, xác thực người dùng).
+- Viết và review code Java / Kotlin / Python theo coding convention của team.
+- Kết nối API với front-end React / Android, xử lý lỗi và log để debug.
+- Trao đổi với QA / BA để làm rõ yêu cầu và cập nhật trạng thái task trên hệ thống.
+
+Nếu bạn CHƯA có kinh nghiệm chính thức, có thể ghi:
+
+Chức danh: Software Engineer (Personal projects)
+Thời gian: 2024 – Nay
+
+- Tự thiết kế và phát triển nhiều dự án cá nhân: hệ thống giám sát tài xế (DMS),
+  ứng dụng Android cho lĩnh vực y tế, API Java cho quản lý dữ liệu, v.v.
+- Chủ động đọc tài liệu tiếng Anh, tài liệu chính thức framework (Spring, Flask, React),
+  và áp dụng vào dự án thực tế trên GitHub.
+- Quen với workflow Git: commit nhỏ, message rõ ràng, tạo branch riêng cho từng tính năng.
+
+----------------------------------------------------------------
+5. KỸ NĂNG
+----------------------------------------------------------------
+
+Kỹ năng chuyên môn:
+- Java backend / REST APIs (Spring / Spring Boot, Servlet, Hibernate, JPA)
+- Kotlin & Android (Material Design, Retrofit/OkHttp)
+- Python / Flask (API, real-time với Flask-SocketIO)
+- Front-end: React 19 + Vite, JavaScript, HTML/CSS cơ bản
+- Cơ sở dữ liệu: MySQL (thiết kế bảng, truy vấn, migration đơn giản)
+- Mạng & Socket: Java socket, RMI, chat realtime cơ bản
+- Bảo mật & thực hành tốt: validation đầu vào, logging, phân tách tầng
+- Testing: JUnit / Mockito (theo từng dự án)
+
+Kỹ năng AI / ML (tập trung vào classical ML & computer vision):
+- OpenCV, MediaPipe cho xử lý ảnh/video và trích xuất đặc trưng
+- scikit-learn: Gaussian Naive Bayes và một số mô hình cổ điển khác
+- Thiết kế pipeline từ dữ liệu → tiền xử lý → train → đánh giá → triển khai demo
+
+Kỹ năng mềm:
+- Tự học và tự nghiên cứu công nghệ mới
+- Ghi chép, viết README và tài liệu kỹ thuật cho dự án cá nhân
+- Làm việc nhóm nhỏ qua GitHub (pull request, review cơ bản)
+
+----------------------------------------------------------------
+6. SỞ THÍCH
+----------------------------------------------------------------
+
+- Đọc tài liệu kỹ thuật, blog về kiến trúc hệ thống và kỹ năng lập trình.
+- Tự xây dựng và tối ưu các dự án cá nhân, đặc biệt là dự án có dữ liệu thật.
+- Nghe nhạc / xem phim để thư giãn sau giờ làm.
+
+----------------------------------------------------------------
+7. DANH HIỆU VÀ GIẢI THƯỞNG
+----------------------------------------------------------------
+
+Nếu bạn có danh hiệu chính thức, hãy điền vào. Nếu chưa, có thể để trống
+hoặc ghi mốc tự hào về dự án cá nhân, ví dụ:
+
+2024  Hoàn thành và public dự án JavaChatApplication, ChatSwing-Java và NoobApi,
+      trở thành nền tảng chính để học và luyện tập Java backend / networking.
+
+2025  Xây dựng và mở mã nguồn hệ thống HayThucKhuya (Naive Bayes cho bài toán gợi ý chẩn đoán),
+      chạy ổn định trên Ubuntu trong môi trường demo.
+
+----------------------------------------------------------------
+8. CHỨNG CHỈ
+----------------------------------------------------------------
+
+2025  FPT – Java (May 2025): hoàn thành chương trình chứng chỉ Java của FPT.
+
+Nếu sau này bạn có thêm chứng chỉ khác (VD: tiếng Anh, cloud, v.v.) có thể bổ sung thêm dòng.
+
+----------------------------------------------------------------
+9. HOẠT ĐỘNG
+----------------------------------------------------------------
+
+Gợi ý nội dung nếu bạn chưa có câu lạc bộ chính thức:
+
+2023 – Nay  Tự học & chia sẻ
+- Tham gia các cộng đồng lập trình online, trao đổi về Java, Python, React.
+- Viết ghi chú kỹ thuật và chia sẻ repo, project mở trên GitHub.
+- Hỗ trợ bạn bè hoặc người quen debug các bài tập / mini project.
+
+----------------------------------------------------------------
+10. DỰ ÁN NỔI BẬT
+----------------------------------------------------------------
+
+1) AI Driver Monitoring System (DMS)
+   Thời gian: 03/2026 – 03/2026
+   Mô tả:
+   - Hệ thống giám sát tài xế: nhận diện khuôn mặt, trạng thái mệt mỏi, phân tích hành vi.
+   - Pipeline xử lý ảnh/video bằng OpenCV, landmarks bằng MediaPipe.
+   - Áp dụng scikit-learn cho bài toán phân loại / scoring rủi ro.
+   - Backend: Flask + Gunicorn; Frontend: React 19 + Vite.
+   - Realtime qua Socket.IO, lưu dữ liệu xuống MySQL, gửi cảnh báo qua Telegram.
+   Link GitHub: https://github.com/CrissNguyenKhanh/AI-DRIVER-MONITORING-SYSTEM-DMS
+
+2) Healthcare mobile suite (MyFinalProjectOfAndroid)
+   Thời gian: 05/2025 – 08/2025
+   Mô tả:
+   - Ứng dụng Android (Kotlin) hỗ trợ quy trình cơ bản cho lĩnh vực y tế:
+     đặt lịch, quản lý thông tin người dùng, tra cứu thông tin.
+   - Giao tiếp với backend Spring Boot REST (JWT, service layer, JPA + MySQL).
+   - Áp dụng Retrofit/OkHttp, coroutines, Material Design.
+   Link GitHub: https://github.com/CrissNguyenKhanh/MyFinalProjectOfAndroid
+
+3) HayThucKhuya – Diagnostic assistant
+   Thời gian: 12/2025 – 12/2025
+   Mô tả:
+   - Xây dựng mô hình Gaussian Naive Bayes (scikit-learn) trên dữ liệu đặc trưng triệu chứng.
+   - Tiền xử lý với pandas/NumPy, API Python nhỏ để nhận input và trả kết quả dự đoán.
+   - Deploy lên Ubuntu, quản lý process bằng systemd, proxy qua Nginx.
+   Link GitHub: https://github.com/CrissNguyenKhanh/HayThucKhuya
+
+4) Realtime chat (RMI + security) – cùng bạn (Chatapp_RealTime_HEHEH)
+   Thời gian: 11/2025 – 12/2025
+   Mô tả:
+   - Ứng dụng chat realtime sử dụng Java RMI cho giao tiếp client–server.
+   - Thiết kế DTO rõ ràng, logging để dễ theo dõi và debug.
+   - Quan tâm tới bảo mật: kiểm soát stub, dữ liệu gửi nhận, xử lý ngoại lệ.
+   Link GitHub: https://github.com/CongHien05/Chatapp_RealTime_HEHEH
+
+5) NoobApi – Java REST API
+   Thời gian: 05/2025 – 05/2025
+   Mô tả:
+   - API Java với xác thực, phân quyền, CRUD cho nhiều thực thể.
+   - Cấu trúc tầng rõ ràng (controller/service/repository), test bằng JUnit/Mockito.
+   - Đóng gói bằng Docker để chạy thống nhất trên nhiều máy.
+   Link GitHub: https://github.com/CrissNguyenKhanh/NoobApi
+
+6) JavaChatApplication & ChatSwing-Java (nhóm dự án Java desktop / networking)
+   Thời gian: 2024 – 2025
+   Mô tả:
+   - Nhiều project Java về chat, Swing UI, servlet/Hibernate/Spring demo.
+   - Luyện tập cấu trúc project Maven, JDBC/MySQL, xử lý socket và giao diện desktop.
+   Link GitHub:
+   - https://github.com/CrissNguyenKhanh/JavaChatApplication
+   - https://github.com/CrissNguyenKhanh/ChatSwing-Java
+
+7) NERDABOVE – Laravel web project
+   Thời gian: 12/2024 – 12/2024
+   Mô tả:
+   - Dự án Laravel đầu tay: MVC, route, Eloquent, Blade templates.
+   - Kết hợp MySQL, Vite, JavaScript để xây dựng giao diện web động.
+   Link GitHub: https://github.com/CrissNguyenKhanh/NERDABOVE
+
+----------------------------------------------------------------
+11. NGƯỜI GIỚI THIỆU
+----------------------------------------------------------------
+
+Bạn có thể để: “Sẽ cung cấp khi nhà tuyển dụng yêu cầu”.
+
+Hoặc nếu đã có người giới thiệu cụ thể, hãy liệt kê:
+- Họ và tên:
+- Chức vụ:
+- Công ty:
+- Email / Số điện thoại:
+
+================================================================
+HẾT – Bạn chỉ cần copy từng đoạn và dán vào form tương ứng trên TopCV.
+================================================================
+

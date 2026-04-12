@@ -14,7 +14,7 @@
   margin: 0 auto;
   width: 100%;
   border-top: 1px solid var(--border, rgba(255, 255, 255, 0.08));
-  font-family: "Segoe UI", system-ui, sans-serif;
+  font-family: "Inter", "Segoe UI", system-ui, sans-serif;
   color: var(--c-text);
 }
 
@@ -32,7 +32,7 @@
   box-shadow: 0 24px 64px rgba(0, 0, 0, 0.45);
   position: relative;
   overflow: hidden;
-  animation: contact-rise 0.85s cubic-bezier(0.22, 1, 0.36, 1) both;
+  transition: box-shadow 0.3s ease;
 }
 
 .contact-card::before {
@@ -248,8 +248,11 @@
 
 .contact-field input:focus,
 .contact-field textarea:focus {
-  border-color: rgba(255, 77, 138, 0.55);
-  box-shadow: 0 0 0 3px rgba(255, 77, 138, 0.12);
+  border-color: rgba(167, 139, 250, 0.65);
+  box-shadow:
+    0 0 0 3px rgba(167, 139, 250, 0.15),
+    0 0 16px rgba(167, 139, 250, 0.12);
+  background: rgba(15, 18, 28, 0.9);
 }
 
 .contact-field textarea {
@@ -278,21 +281,24 @@
   font-weight: 700;
   font-family: inherit;
   cursor: pointer;
-  color: #0b0e14;
-  background: linear-gradient(105deg, var(--c-pink), var(--c-purple));
-  background-size: 150% auto;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+  color: #fff;
+  background: linear-gradient(105deg, var(--c-pink), var(--c-purple), var(--c-cyan));
+  background-size: 200% auto;
+  transition:
+    transform 0.25s var(--ease-spring, cubic-bezier(0.16,1,0.3,1)),
+    box-shadow 0.25s ease,
+    background-position 0.4s ease;
   box-shadow: 0 8px 28px rgba(255, 77, 138, 0.35);
 }
 
 .contact-submit:hover:not(:disabled) {
-  transform: translateY(-2px);
-  filter: brightness(1.05);
-  box-shadow: 0 12px 36px rgba(167, 139, 250, 0.35);
+  transform: translateY(-3px) scale(1.02);
+  background-position: right center;
+  box-shadow: 0 14px 40px rgba(167, 139, 250, 0.4);
 }
 
 .contact-submit:active:not(:disabled) {
-  transform: translateY(0);
+  transform: translateY(0) scale(0.99);
 }
 
 .contact-submit:disabled {
